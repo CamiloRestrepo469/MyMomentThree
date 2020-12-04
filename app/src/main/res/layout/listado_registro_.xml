@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+    <LinearLayout
+        android:layout_width="70dp"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_weight=".2">
+
+        <ImageView
+            android:id="@+id/tv_imageView_registro"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight=".8"
+            app:maxImageSize="40dp"
+            android:layout_gravity="start|left"
+            app:srcCompat="@drawable/ic_face_black_18dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight=".8"
+
+        >
+        <TextView
+            android:id="@+id/textView_correo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Correo"
+            android:gravity="center"
+            android:textColor="#071BCC"
+            android:textSize="15sp"/>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+
+            > <TextView
+            android:id="@+id/textView_nombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:paddingHorizontal="1dp"
+            android:gravity="center_vertical"
+            android:textColor="#AE0B0B"
+            android:textSize="20sp"/>
+
+            <TextView
+
+                android:id="@+id/textView_cedula"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="0dp"
+                android:gravity="end"
+                android:paddingHorizontal="25dp"
+                android:paddingEnd="2dp"
+                android:text="Cedula"
+                android:textColor="#07CC11"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView_celular"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Celular"
+            android:gravity="center"
+            android:textColor="#8A0E0E"
+            android:textSize="12sp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

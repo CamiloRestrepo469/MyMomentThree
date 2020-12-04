@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+    <LinearLayout
+    android:id="@+id/ll_registro_correo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:paddingTop="15dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/textView_editar_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:textSize="20dp"
+        android:textColor="#DA0C0C"
+        android:text="Correo *" />
+
+    <EditText
+        android:id="@+id/editText_editar_correo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:ems="10"
+        android:textColor="#DA0C0C"
+        android:textSize="16dp"
+        android:inputType="textPersonName"
+        android:hint="Editar el Correo" />
+</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_registro_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:paddingTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_registro_correo">
+
+        <TextView
+            android:id="@+id/textView_editar_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="20dp"
+            android:textColor="#DA0C0C"
+            android:text="Nombre *" />
+
+        <EditText
+            android:id="@+id/editText_editar_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ems="10"
+            android:textColor="#DA0C0C"
+            android:textSize="16dp"
+            android:inputType="textPersonName"
+            android:hint="Editar el Nombre" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_registro_cedula"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:paddingTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_registro_nombre">
+
+        <TextView
+            android:id="@+id/textView_editar_cedula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="20dp"
+            android:textColor="#DA0C0C"
+            android:text="Cedula *" />
+
+        <EditText
+            android:id="@+id/editText_editar_cedula"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ems="10"
+            android:textColor="#DA0C0C"
+            android:textSize="16dp"
+            android:inputType="number"
+            android:hint="Digite la Cedula" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_registro_celular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:paddingTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ll_registro_cedula">
+
+        <TextView
+            android:id="@+id/textView_editar_celular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textSize="20dp"
+            android:textColor="#DA0C0C"
+            android:text="Celular *" />
+
+        <EditText
+            android:id="@+id/editText_editar_celular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:ems="10"
+            android:textColor="#DA0C0C"
+            android:textSize="16dp"
+            android:inputType="number"
+            android:hint="Numero de Celular" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736790466491",
+    "project_id": "my-moment-three",
+    "storage_bucket": "my-moment-three.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736790466491:android:4602fae17f6f9b7c78be9e",
+        "android_client_info": {
+          "package_name": "com.example.mymomentthree"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736790466491-44die2r8k03m667chb0bfq40i0g19kqf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9RW934Bfr87NvdAk75hBxNw6GjWgXC48"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736790466491-44die2r8k03m667chb0bfq40i0g19kqf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
