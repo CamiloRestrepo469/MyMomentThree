@@ -10,6 +10,17 @@ public class RegistroModelo implements Serializable {
     String cedula;
     String celular;
 
+    @Override
+    public String toString() {
+        return "RegistroModelo{" +
+                "id='" + id + '\'' +
+                ", correo='" + correo + '\'' +
+                ", nombre='" + nombre + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", celular='" + celular + '\'' +
+                '}';
+    }
+
     public RegistroModelo() {
     }
 

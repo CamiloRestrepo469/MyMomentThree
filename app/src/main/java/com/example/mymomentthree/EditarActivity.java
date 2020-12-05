@@ -8,11 +8,15 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +31,11 @@ public class EditarActivity extends AppCompatActivity {
     private EditText editText_editar_correo,editText_editar_nombre,editText_editar_cedula,editText_editar_celular;
     private FloatingActionButton fab_editar_update;
 
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private FirebaseStorage mFirebaseStorage;
+    private DocumentReference documentReference;
+
     private final String registroRefrence="registro";
     private FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
     private DatabaseReference databaseReference=firebaseDatabase.getReference(registroRefrence);
@@ -39,6 +48,11 @@ public class EditarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_editar);
         Toolbar toolbar = findViewById(R.id.toolbar_editar);
         setSupportActionBar(toolbar);
+
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        mFirebaseStorage=FirebaseStorage.getInstance();
+
 
         editText_editar_correo=findViewById(R.id.editText_editar_correo);
         editText_editar_nombre=findViewById(R.id.editText_editar_nombre);
