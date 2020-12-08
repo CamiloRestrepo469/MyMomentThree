@@ -46,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         lv_lista_registro=findViewById(R.id.lv_lista_registro);
+
         fab_principal_registro= findViewById(R.id.fab_principal_registro);
+
         list=new ArrayList<>();
         modelo=new RegistroModelo();
 

@@ -7,15 +7,13 @@ import com.example.mymomentthree.conexion.FirebaseConexion;
 import com.example.mymomentthree.modelos.RegistroModelo;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.StorageReference;
 
 import androidx.annotation.NonNull;
@@ -31,23 +29,43 @@ public class RegistroActivity extends AppCompatActivity {
     private EditText editText_correo,editText_nombre,editText_cedula,editText_celular;
     private FloatingActionButton fab_registro;
     private RegistroModelo modelo;
+//    protected FirebaseFirestore db;
 
-    protected FirebaseFirestore db;
-    protected FirebaseAuth mAuth;
-    protected FirebaseStorage mFirebaseStorage;
+//    protected FirebaseFirestore db;
+//    protected FirebaseAuth mAuth;
+//    protected FirebaseStorage mFirebaseStorage;
+//
+//
+//
+//    protected Query query;
+//    protected CollectionReference collectionReference;
+//    protected StorageReference mStorageReference,fileReference;
+//
+//    protected final String COLLECTION_NAME = "registro";
+//
+//
+//    private final String registroRefrence="registro";
+//    private FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
+//    private DatabaseReference databaseReference=firebaseDatabase.getReference(registroRefrence);
 
 
-
-    protected Query query;
-    protected CollectionReference collectionReference;
-    protected StorageReference mStorageReference,fileReference;
-
-    protected final String COLLECTION_NAME = "registro";
+    //    private DocumentReference documentReference;
 
 
-    private final String registroRefrence="registro";
-    private FirebaseDatabase firebaseDatabase=FirebaseDatabase.getInstance();
-    private DatabaseReference databaseReference=firebaseDatabase.getReference(registroRefrence);
+//    final private String collection = "registro";
+//    protected FirebaseFirestore db;
+//    protected Query query;
+//    protected CollectionReference collectionReference;
+//    protected StorageReference mStorageReference,fileReference;
+//
+//    protected final String COLLECTION_NAME = "registro";
+
+    private final String registro="registro";
+    private FirebaseFirestore firebaseFirestore=FirebaseFirestore.getInstance();
+    private FirebaseFirestore firebaseConexion=FirebaseConexion.ConectionFirestore(registro);
+//    protected FirebaseFirestore db;
+    private FirebaseFirestore db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +73,7 @@ public class RegistroActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar_registro);
         setSupportActionBar(toolbar);
 
-
-
+        init();
 
         editText_correo=findViewById(R.id.editText_correo);
         editText_nombre=findViewById(R.id.editText_nombre);
@@ -74,16 +91,16 @@ public class RegistroActivity extends AppCompatActivity {
                 String celular =editText_celular.getText().toString();
 
                 if(!correo.equals("")&&!nombre.equals("")&&!cedula.equals("")&&!celular.equals("")){
-                       String id=databaseReference.push().getKey();
+                       String id=firebaseFirestore.hashCode().getKey();
                        if(id!=null&&!id.equals("")){
                            modelo=new RegistroModelo(id,correo,nombre,cedula,celular);
-                           databaseReference.child(id).setValue(modelo)
+                           final Task<QuerySnapshot> querySnapshotTask = firebaseFirestore.collection(id).get(modelo)
                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
                                        @Override
                                        public void onSuccess(Void aVoid) {
-                                           if(!modelo.getId().equals("")&&modelo.getId()!=null){
-                                               Intent editarDetalle=new Intent(RegistroActivity.this,DetalleActivity.class);
-                                               editarDetalle.putExtra("id",modelo.getId());
+                                           if (!modelo.getId().equals("") && modelo.getId() != null) {
+                                               Intent editarDetalle = new Intent(RegistroActivity.this, DetalleActivity.class);
+                                               editarDetalle.putExtra("id", modelo.getId());
                                                startActivity(editarDetalle);
                                                finish();
 
@@ -94,7 +111,7 @@ public class RegistroActivity extends AppCompatActivity {
                                    .addOnFailureListener(new OnFailureListener() {
                                        @Override
                                        public void onFailure(@NonNull Exception e) {
-                                           Snackbar.make(view,"No guardo el registro",Snackbar.LENGTH_LONG).show();
+                                           Snackbar.make(view, "No guardo el registro", Snackbar.LENGTH_LONG).show();
                                        }
                                    });
                        }else {
@@ -110,18 +127,12 @@ public class RegistroActivity extends AppCompatActivity {
             }
         });
     }
+
     protected void init(){
-//          FirebaseAuth mAuth;
-//
-//          FirebaseFirestore db;
-//
-//         FirebaseStorage mFirebaseStorage;
-//        //    private static StorageReference mStorageRef;
-//
-//        db = firebaseConection.ConectionFirestore();
-//        mAuth = firebaseConection.ConectionAuth();
-//        mFirebaseStorage = firebaseConection.ConectionStorage();
+        modelo = new RegistroModelo();
+        db = FirebaseConexion.ConectionFirestore(registro);
 //        collectionReference = db.collection(COLLECTION_NAME);
     }
+
 
 }
